@@ -6,48 +6,71 @@ using System.Threading.Tasks;
 
 namespace SoundSharp
 {
-    class Program {
-        static void Main(string[] args) {
-            GetName();
-            LogIn();
-        }
+    class MainClass
+    {
+        public static int attempt = 1;
+        public static int maxAttempts = 3;
 
-        static void GetName() {
-            Console.WriteLine("Wat is je naam?");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Vul je naam in:");
+            string name = Console.ReadLine();
 
-            Boolean setname = false;
-            do {
-                string name = Console.ReadLine();
-                if (name == "") {
-                    Console.WriteLine("Je hebt toch wel een naam chef? Voer op z'n minst iets in!");
-                } else {
-                    Console.WriteLine("Hallo chef " + name + ", wat is het wachtwoord?");
-                    setname = true;
-                }
-            } while (setname == false);
-        }
-
-        static int attempts = 3;
-        static void LogIn () {
-            while (attempts > 0) {
-                attempts--;
-
-                string password = Console.ReadLine();
-                if (password == "rip") {
-                    Console.Clear();
-                    Console.WriteLine("Welkom in SoundSharp, chef");
-                } else if (attempts > 1) {
-                    Console.WriteLine("Het ingevoerde wachtwoord is fout, je hebt nog {0} pogingen over!", attempts);
-                }
+            Boolean isLoggedIn;
+            isLoggedIn = LogIn(name);
+            if (isLoggedIn == true)
+            {
+                Menu();
             }
+            else {
+                Console.WriteLine("Je hebt geen pogingen meer! Druk op een toets om af te sluiten.");
+            }
+            Console.ReadKey();
+        }
 
-            
-            if (attempts == 0) {
-                Console.WriteLine("Je hebt geen pogingen meer, het programma wordt afgesloten!");
-                Console.WriteLine("Druk op een toets om het programma af te sluiten.");
-                Console.ReadKey();
-            } else if (attempts == 0) {
-                Console.WriteLine("Dit is je laatste poging! Anders wordt je /system32/ verwijderd.");
+        static Boolean LogIn(string name)
+        {
+            Console.WriteLine("Hallo chef {0}, vul je wachtwoord in:", name);
+            string input;
+            do
+            {
+                input = Console.ReadLine();
+                attempt++;
+
+                if (input == "123")
+                {
+                    Console.Clear();
+                    return true;
+                }
+                else if (attempt == maxAttempts)
+                {
+                    Console.WriteLine("Dit is je laatste poging:");
+                }
+                else if (attempt > 1 && attempt < maxAttempts)
+                {
+                    Console.WriteLine("Poging {0} van {1}:", attempt, maxAttempts);
+                }
+            } while (attempt < maxAttempts + 1);
+            return false;
+        }
+
+        static void Menu()
+        {
+            Console.WriteLine("1. menu-item");
+            Console.WriteLine("2. menu-item");
+            Console.WriteLine("3. menu-item");
+            Console.WriteLine("4. menu-item");
+            Console.WriteLine("5. menu-item");
+            Console.WriteLine("6. menu-item");
+            Console.WriteLine("7. menu-item");
+            Console.WriteLine("8. menu-item");
+            Console.WriteLine("9. Programma verlaten");
+        }
+
+        static void MenuChoices()
+        {
+            while {
+
             }
         }
     }
