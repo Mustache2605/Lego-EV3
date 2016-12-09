@@ -182,6 +182,7 @@ namespace soundSharp {
                     case '2':
                         Console.Clear();
                         showStock();
+                        Console.WriteLine("ok");
                         break;
 
                     case '3':
