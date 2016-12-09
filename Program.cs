@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoundSharp {
-    class MainClass {
+namespace soundSharp {
+    class mainClass {
         public static int attempt = 1;
         public static int maxAttempts = 3;
 
-        public static List<MPlayers> MPList = new List<MPlayers> {
+        public static List<MPlayers> MPlist = new List<MPlayers> {
         new MPlayers(1, 500, "GET technologies .inc", "HF 410", 4096, 129.95),
         new MPlayers(2, 500, "Far & Loud", "XM 600", 8192, 224.95),
         new MPlayers(3, 500, "Innotivative", "Z3", 512, 79.95),
@@ -17,7 +17,7 @@ namespace SoundSharp {
         new MPlayers(5, 500, "CBA", "NXT volume", 20480000, 159.05),
         };
 
-        private static void Disco() {
+        private static void easterEgg() {
             while (true) {
                 Console.WriteLine("It's ya boi easteregg.");
                 Console.Clear();
@@ -113,17 +113,17 @@ namespace SoundSharp {
             string name = Console.ReadLine();
 
             Boolean isLoggedIn;
-            isLoggedIn = LogIn(name);
+            isLoggedIn = logIn(name);
             if (isLoggedIn == true) {
-                ShowMenu();
-                MenuPress();
+                showMenu();
+                readKey();
             } else {
                 Console.WriteLine("Je hebt geen pogingen meer! Druk op een toets om af te sluiten.");
             }
             Console.ReadKey();
         }
 
-        static Boolean LogIn(string name) {
+        static Boolean logIn(string name) {
             Console.WriteLine("Hallo chef {0}, vul je wachtwoord in:", name);
             string input;
 
@@ -143,7 +143,7 @@ namespace SoundSharp {
             return false;
         }
 
-        static void ShowMenu() {
+        static void showMenu() {
             Console.Beep();
             Console.WriteLine("Welkom bij het SoundSharp hoofdmenu!");
             Console.WriteLine("1. Voorraad bekijken");
@@ -157,14 +157,14 @@ namespace SoundSharp {
             Console.WriteLine("9. Programma verlaten");
         }
 
-        static void MenuPress() {
+        static void readKey() {
             while (true) {
                 ConsoleKeyInfo key = Console.ReadKey();
                 char choice = Convert.ToChar(key.Key);
                 
                 switch (choice) {
                     case '0':
-                        Disco();
+                        easterEgg();
                         break;
 
                     case '1':
@@ -204,7 +204,7 @@ namespace SoundSharp {
 
                     case '8':
                         Console.Clear();
-                        ShowMenu();
+                        showMenu();
                         break;
 
                     case '9':
@@ -214,15 +214,15 @@ namespace SoundSharp {
 
                     default:
                         Console.Clear();
-                        ShowMenu();
+                        showMenu();
                         break;
                 }
             }
         }
 
         public static void MPShowList() {
-            foreach (MPlayers item in MPList) {
-                Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + "\nMerk: " + item.PlayerMake + "\nModel: " + item.PlayerModel + "\nGrootte:" + item.PlayerMB + " MB \nPrijs:" + item.PlayerPrice + "\n\n");
+            foreach (MPlayers item in MPlist) {
+                Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + "\nMerk: " + item.PlayerMake + "\nModel: " + item.PlayerModel + "\nGrootte:" + item.PlayerMB + " MB \nPrijs: " + item.PlayerPrice + " euro \n\n");
             }
         }
 
