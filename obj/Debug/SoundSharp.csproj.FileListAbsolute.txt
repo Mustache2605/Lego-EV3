@@ -1,0 +1,12 @@
+c:\users\nyma_\documents\visual studio 2015\Projects\SoundSharp\SoundSharp\bin\Debug\SoundSharp.exe.config
+c:\users\nyma_\documents\visual studio 2015\Projects\SoundSharp\SoundSharp\bin\Debug\SoundSharp.exe
+c:\users\nyma_\documents\visual studio 2015\Projects\SoundSharp\SoundSharp\bin\Debug\SoundSharp.pdb
+c:\users\nyma_\documents\visual studio 2015\Projects\SoundSharp\SoundSharp\obj\Debug\SoundSharp.csprojResolveAssemblyReference.cache
+c:\users\nyma_\documents\visual studio 2015\Projects\SoundSharp\SoundSharp\obj\Debug\SoundSharp.exe
+c:\users\nyma_\documents\visual studio 2015\Projects\SoundSharp\SoundSharp\obj\Debug\SoundSharp.pdb
+C:\Users\nyma_\Source\Repos\SoundSharp\bin\Debug\SoundSharp.exe.config
+C:\Users\nyma_\Source\Repos\SoundSharp\obj\Debug\SoundSharp.exe
+C:\Users\nyma_\Source\Repos\SoundSharp\obj\Debug\SoundSharp.pdb
+C:\Users\nyma_\Source\Repos\SoundSharp\bin\Debug\SoundSharp.exe
+C:\Users\nyma_\Source\Repos\SoundSharp\bin\Debug\SoundSharp.pdb
+C:\Users\nyma_\Source\Repos\SoundSharp\obj\Debug\SoundSharp.csprojResolveAssemblyReference.cache

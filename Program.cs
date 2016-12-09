@@ -14,7 +14,7 @@ namespace soundSharp {
         new MPlayers(2, 500, "Far & Loud", "XM 600", 8192, 224.95),
         new MPlayers(3, 500, "Innotivative", "Z3", 512, 79.95),
         new MPlayers(4, 500, "Resistance S.A", "3001", 4096, 124.95),
-        new MPlayers(5, 500, "CBA", "NXT volume", 20480000, 159.05),
+        new MPlayers(5, 500, "CBA", "NXT volume", 2048, 159.05),
         };
 
         private static void easterEgg() {
@@ -174,7 +174,7 @@ namespace soundSharp {
 
                     case '2':
                         Console.Clear();
-                        Console.WriteLine("Menu item 2!");
+                        showStock();
                         break;
 
                     case '3':
@@ -222,7 +222,7 @@ namespace soundSharp {
 
         public static void MPShowList() {
             foreach (MPlayers item in MPlist) {
-                Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + "\nMerk: " + item.PlayerMake + "\nModel: " + item.PlayerModel + "\nGrootte:" + item.PlayerMB + " MB \nPrijs: " + item.PlayerPrice + " euro \n\n");
+                Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + " stuks\nMerk: " + item.PlayerMake + "\nModel: " + item.PlayerModel + "\nGrootte:" + item.PlayerMB + " MB \nPrijs: " + item.PlayerPrice + " euro \n");
             }
         }
 
@@ -241,6 +241,12 @@ namespace soundSharp {
                 this.PlayerModel = PlayerModel;
                 this.PlayerMB = PlayerMB;
                 this.PlayerPrice = PlayerPrice;
+            }
+        }
+
+        public static void showStock() {
+            foreach (MPlayers item in MPlist) {
+                Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + " stuks\n");
             }
         }
     }
