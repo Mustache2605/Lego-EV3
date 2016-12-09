@@ -152,9 +152,9 @@ namespace soundSharp {
         static void showMenu() {
             Console.Beep();
             Console.WriteLine("Welkom bij het SoundSharp hoofdmenu!");
-            Console.WriteLine("1. Voorraad bekijken");
-            Console.WriteLine("2. menu-item");
-            Console.WriteLine("3. menu-item");
+            Console.WriteLine("1. MP3 spelers bekijken");
+            Console.WriteLine("2. Voorraad bekijken");
+            Console.WriteLine("3. Voorraad muteren");
             Console.WriteLine("4. menu-item");
             Console.WriteLine("5. menu-item");
             Console.WriteLine("6. menu-item");
@@ -182,7 +182,6 @@ namespace soundSharp {
                     case '2':
                         Console.Clear();
                         showStock();
-                        Console.WriteLine("ok");
                         break;
 
                     case '3':
@@ -257,6 +256,7 @@ namespace soundSharp {
 
         /* Function: Shows the stock (only ID and stock) */
         public static void showStock() {
+            Console.WriteLine("Voorraad weergave");
             foreach (MPlayers item in MPlist) {
                 Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + " stuks\n");
             }
