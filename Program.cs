@@ -12,10 +12,10 @@ namespace soundSharp {
         public static int maxAttempts = 3;
 
         /* string: Returns name into the whole system */
-        static string name;
+        public static string name;
 
         /* Easter egg: It's ya boi easter egg muhahaha... */
-        private static void easterEgg() {
+        public static void easterEgg() {
             while (true) {
                 Console.WriteLine("It's ya boi easteregg.");
                 Console.Clear();
@@ -123,7 +123,7 @@ namespace soundSharp {
         }
 
         /* Function: Login (name, attempts and password check) */
-        static Boolean logIn() {
+        public static Boolean logIn() {
             Console.WriteLine("Hallo chef {0}, vul je wachtwoord in:", name);
             string input;
 
@@ -147,7 +147,7 @@ namespace soundSharp {
         public static void showMenu() {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("#######################################################################################################################");
-            Console.WriteLine("#################################### Welkom bij het SoundSharp hoofdmenu, {0}! ####################################", name);
+            Console.WriteLine("##################################### Welkom bij het SoundSharp hoofdmenu, {0}! #####################################", name);
             Console.WriteLine("#######################################################################################################################");
             Console.ResetColor();
             Console.WriteLine("1. MP3 spelers bekijken");
@@ -162,7 +162,7 @@ namespace soundSharp {
         }
 
         /* Function: Reads the key for the menu function described as above and goes to the function that is assigned to the key */
-        static void readKey() {
+        public static void readKey() {
             while (true) {
                 ConsoleKeyInfo key = Console.ReadKey();
                 char choice = Convert.ToChar(key.Key);
