@@ -131,7 +131,7 @@ namespace soundSharp {
                 input = Console.ReadLine();
                 attempt++;
 
-                if (input == "123") {
+                if (input == "") {
                     Console.Clear();
                     return true;
                 } else if (attempt == maxAttempts) {
@@ -274,7 +274,25 @@ namespace soundSharp {
 
         /* Function: Change the stock of available MP players */
         public static void changeStock() {
+            Console.WriteLine("Voer het ID van een MP3 speler in om de voorraad aan te passen:");
+            string readInput = Console.ReadLine();
+            int ID;
 
+            try {
+                ID = Convert.ToInt32(readInput);
+                MPlayers tempinfo = MPlist[MPlist.FindIndex(x => x.PlayerID == ID)];
+                Console.WriteLine("De voorraad voor het gekozen ID is: {0}", tempinfo.PlayerStock);
+                Console.WriteLine("Mutatie -/+: ");
+                int meme = Convert.ToInt32(Console.ReadLine());
+                tempinfo.PlayerStock += meme;
+                if (tempinfo.PlayerStock < 0) {
+                    Console.WriteLine("Mutatie niet uitgevoerd: voorraad mag niet negatief worden.");
+                } else {
+                    MPlist[MPlist.FindIndex(x => x.PlayerID == ID)] = tempinfo;
+                }
+            } catch (Exception error) {
+                Console.WriteLine("Mutatie niet uitgevoerd: voorraad mag niet negatief worden. Je bent een faalhaas. (Error: {0}", error);
+            }
         }
 
         /* Function: Add a MP player to the system */
