@@ -226,12 +226,12 @@ namespace soundSharp {
         }
 
         /* List: Creates a list with items */
-        public static List<MPlayers> MPlist = new List<MPlayers> {
-        new MPlayers(1, 500, "GET technologies .inc", "HF 410", 4096, 129.95),
-        new MPlayers(2, 500, "Far & Loud", "XM 600", 8192, 224.95),
-        new MPlayers(3, 500, "Innotivative", "Z3", 512, 79.95),
-        new MPlayers(4, 500, "Resistance S.A", "3001", 4096, 124.95),
-        new MPlayers(5, 500, "CBA", "NXT volume", 2048, 159.05),
+        public static List<MP3Players> MP3list = new List<MP3Players> {
+        new MP3Players(1, 500, "GET technologies .inc", "HF 410", 4096, 129.95),
+        new MP3Players(2, 500, "Far & Loud", "XM 600", 8192, 224.95),
+        new MP3Players(3, 500, "Innotivative", "Z3", 512, 79.95),
+        new MP3Players(4, 500, "Resistance S.A", "3001", 4096, 124.95),
+        new MP3Players(5, 500, "CBA", "NXT volume", 2048, 159.05),
         };
 
         /* Function: Shows information from the list about the MP3 players */
@@ -239,13 +239,13 @@ namespace soundSharp {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("MP3 spelers die in het systeem staan:");
             Console.ResetColor();
-            foreach (MPlayers item in MPlist) {
+            foreach (MP3Players item in MP3list) {
                 Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + " stuks\nMerk: " + item.PlayerMake + "\nModel: " + item.PlayerModel + "\nGrootte: " + item.PlayerMB + " MB \nPrijs: " + item.PlayerPrice + " euro \n");
             }
         }
 
         /* Struct: Well... as the name says a struct */
-        public struct MPlayers {
+        public struct MP3Players {
             public int PlayerID;
             public int PlayerStock;
             public String PlayerMake;
@@ -254,7 +254,7 @@ namespace soundSharp {
             public double PlayerPrice;
 
             /* Constructor: Reads the struct and give it's directions */
-            public MPlayers(int PlayerID, int PlayerStock, String PlayerMake, String PlayerModel, float PlayerMB, double PlayerPrice) {
+            public MP3Players(int PlayerID, int PlayerStock, String PlayerMake, String PlayerModel, float PlayerMB, double PlayerPrice) {
                 this.PlayerID = PlayerID;
                 this.PlayerStock = PlayerStock;
                 this.PlayerMake = PlayerMake;
@@ -267,7 +267,7 @@ namespace soundSharp {
         /* Function: Shows the stock (only ID and stock) */
         public static void showStock() {
             Console.WriteLine("Voorraad weergave");
-            foreach (MPlayers item in MPlist) {
+            foreach (MP3Players item in MP3list) {
                 Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + " stuks\n");
             }
         }
@@ -280,18 +280,20 @@ namespace soundSharp {
 
             try {
                 ID = Convert.ToInt32(readInput);
-                MPlayers tempinfo = MPlist[MPlist.FindIndex(x => x.PlayerID == ID)];
+                MP3Players tempinfo = MP3list[MP3list.FindIndex(x => x.PlayerID == ID)];
                 Console.WriteLine("De voorraad voor het gekozen ID is: {0}", tempinfo.PlayerStock);
                 Console.WriteLine("Mutatie -/+: ");
-                int meme = Convert.ToInt32(Console.ReadLine());
-                tempinfo.PlayerStock += meme;
+                int stock = Convert.ToInt32(Console.ReadLine());
+                tempinfo.PlayerStock += stock;
                 if (tempinfo.PlayerStock < 0) {
                     Console.WriteLine("Mutatie niet uitgevoerd: voorraad mag niet negatief worden.");
                 } else {
-                    MPlist[MPlist.FindIndex(x => x.PlayerID == ID)] = tempinfo;
+                    MP3list[MP3list.FindIndex(x => x.PlayerID == ID)] = tempinfo;
                 }
-            } catch (Exception error) {
-                Console.WriteLine("Mutatie niet uitgevoerd: voorraad mag niet negatief worden. Je bent een faalhaas. (Error: {0}", error);
+            } catch (FormatException areYouSureAboutThat) {
+                Console.WriteLine(areYouSureAboutThat.Message);
+            } catch (OverflowException areYouReallySureAboutThat) {
+                Console.WriteLine(areYouReallySureAboutThat.Message);
             }
         }
 
