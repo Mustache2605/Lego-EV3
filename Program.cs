@@ -150,10 +150,10 @@ namespace soundSharp {
             Console.WriteLine("##################################### Welkom bij het SoundSharp hoofdmenu, {0}! #####################################", name);
             Console.WriteLine("#######################################################################################################################");
             Console.ResetColor();
-            Console.WriteLine("1. MP3 spelers bekijken");
-            Console.WriteLine("2. Voorraad bekijken");
-            Console.WriteLine("3. Voorraad muteren");
-            Console.WriteLine("4. menu-item");
+            Console.WriteLine("1. Overzicht MP3 spelers");
+            Console.WriteLine("2. Overzicht voorraad");
+            Console.WriteLine("3. Muteer de voorraad");
+            Console.WriteLine("4. Statistieken");
             Console.WriteLine("5. menu-item");
             Console.WriteLine("6. menu-item");
             Console.WriteLine("7. menu-item");
@@ -236,8 +236,8 @@ namespace soundSharp {
 
         /* Function: Shows information from the list about the MP3 players */
         public static void MPShowList() {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("MP3 spelers die in het systeem staan:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("MP3 spelers die in het systeem staan");
             Console.ResetColor();
             foreach (MP3Players item in MP3list) {
                 Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + " stuks\nMerk: " + item.PlayerMake + "\nModel: " + item.PlayerModel + "\nGrootte: " + item.PlayerMB + " MB \nPrijs: " + item.PlayerPrice + " euro \n");
@@ -266,7 +266,9 @@ namespace soundSharp {
 
         /* Function: Shows the stock (only ID and stock) */
         public static void showStock() {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Voorraad weergave");
+            Console.ResetColor();
             foreach (MP3Players item in MP3list) {
                 Console.WriteLine("ID: " + item.PlayerID + "\nVoorraad: " + item.PlayerStock + " stuks\n");
             }
@@ -304,9 +306,21 @@ namespace soundSharp {
 
         /* Function: Show the statistics of all the available MP players ex. average of all MP players */
         public static void showStatistics() {
-            Console.WriteLine("Totale statistieken:");
-            
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Totale statistieken");
+            Console.ResetColor();
+            int totalStock = 0;
+            double totalValue = 0;
+            double average = 0;
 
+            foreach (var MP3Players in MP3list) {
+                totalStock += MP3Players.PlayerStock;
+                totalValue += (MP3Players.PlayerStock * MP3Players.PlayerPrice);
+                average += (MP3Players.PlayerPrice / MP3list.Count);
+            }
+            Console.WriteLine("Er zijn in totaal {0} MP3 spelers in voorraad.", totalStock);
+            Console.WriteLine("De totale waarde van alle MP3 spelers zijn bij elkaar {0} euro.", totalValue);
+            Console.WriteLine("De gemiddeld waarde van alle MP3 spelers is ongeveer {0} euro.", average);
         }
     }
 }
