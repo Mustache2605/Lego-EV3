@@ -317,6 +317,7 @@ namespace soundSharp {
                 totalStock += MP3Players.PlayerStock;
                 totalValue += (MP3Players.PlayerStock * MP3Players.PlayerPrice);
                 average += (MP3Players.PlayerPrice / MP3list.Count);
+
             }
             Console.WriteLine("Er zijn in totaal {0} MP3 spelers in voorraad.", totalStock);
             Console.WriteLine("De totale waarde van alle MP3 spelers zijn bij elkaar {0} euro.", totalValue);
